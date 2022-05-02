@@ -2,6 +2,26 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
+import { Popover } from '@headlessui/react';
+
+const MyPopover = () => {
+  return (
+    <Popover className="relative">
+      <Popover.Button>Popover</Popover.Button>
+
+      <Popover.Panel className="absolute z-10 bg-slate-400">
+        <div className="grid grid-cols-1">
+          <a href="/analytics">Analytics</a>
+          <a href="/engagement">Engagement</a>
+          <a href="/security">Security</a>
+          <a href="/integrations">Integrations</a>
+        </div>
+
+        <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+      </Popover.Panel>
+    </Popover>
+  );
+};
 
 const Home: NextPage = () => {
   return (
@@ -16,6 +36,8 @@ const Home: NextPage = () => {
         <h1 className={`${styles.title}  bg-brand-500`}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+
+        <MyPopover />
 
         <p className={styles.description}>
           Get started by editing{' '}
